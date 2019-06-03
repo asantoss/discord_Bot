@@ -1,5 +1,24 @@
 // Load up the discord.js library
 const Discord = require("discord.js");
+//Load up xmlhttp requests
+const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest
+//Overwatch api url
+const owapi = 'https://overwatch-api.net/api/v1/hero';
+//fetch the json from the url
+const http = new XMLHttpRequest();
+http.open("GET", owapi);
+http.send();
+http.onreadystatechange = function () {
+
+    if (this.readyState == 4 && this.status == 200) {
+        let owjs = JSON.parse(http.responseText);
+        console.log('Overwatch data loaded.')
+        console.log(`${owjs.data[0].name}`)
+    }
+};
+
+
+
 
 // This is your client. Some people call it `bot`, some people call it `self`, 
 // some might call it `cootchie`. Either way, when you see `client.something`, or `bot.something`,
@@ -83,7 +102,6 @@ client.on("message", async message => {
         console.log(localOffset);
         console.log(utc);
         // To get the "message" itself we join the `args` back into a string with spaces: 
-        const sayMessage;
         // Then we delete the command message (sneaky, right?). The catch just ignores the error with a cute smiley thing.
         // message.delete().catch(O_o => {});
         // // And we get the bot to say the thing: 
@@ -96,9 +114,33 @@ client.on("message", async message => {
         const counterReply = `${hero} is ${overwatch[`${hero}`]}`;
         const counterReplyCapitalized = counterReply.charAt(0).toUpperCase() + counterReply.slice(1);
         // Then we delete the command message (sneaky, right?). The catch just ignores the error with a cute smiley thing.
+        //Return some information about the hero from the loaded api.
+        const http = new XMLHttpRequest();
+        http.open("GET", owapi);
+        http.send();
+        http.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                let owjs = JSON.parse(http.responseText);
+                let data = owjs.data
+                let newHero = hero.charAt(0).toUpperCase() + hero.slice(1);
+                for (let i = 0; i < data.length; i++) {
+                    const element = data[i];
+                    if (element.name == newHero) {
+                        console.log(element)
+                        message.channel.send(`${newHero}'s health is ${element.health}`)
+                    }
+
+                }
+                console.log(newHero)
+                console.log('Overwatch data loaded.');
+                console.log(`${owjs.data[0].name}`);
+            }
+        };
+
+
         message.delete().catch(O_o => {});
         // And we get the bot to say the thing: 
-        message.channel.send(counterReplyCapitalized);
+        message.channel.send(`\n ${counterReplyCapitalized}`);
     }
 
     if (command === "kick") {
@@ -165,6 +207,27 @@ client.on("message", async message => {
         });
         message.channel.bulkDelete(fetched)
             .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
+    }
+    //Command stats will take the sender's name and build a url to retrieve a json with their profile info.
+    //Here we have the bot send the portrait image as a message and tell the user if it can't 
+    //retrive their rank due to not being public
+    if (command === "stats") {
+        let usr = overwatch[`${message.author.tag}`];
+        let usrUrl = `http://overwatchy.com/profile/pc/us/${usr}`;
+        let request = new XMLHttpRequest;
+        request.open("GET", usrUrl);
+        request.send();
+        request.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                let profile = JSON.parse(request.responseText);
+                message.channel.send(`${profile.portrait}`)
+                if (profile.competitive.rank == null) {
+                    return message.reply("Your profile is not set to public.")
+                }
+            }
+        }
+
+
     }
 });
 
