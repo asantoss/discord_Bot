@@ -5,7 +5,9 @@ client.on('ready', () => {
     console.log("Connected as " + client.user.tag)
 
     //set the bot activity to watching youtube.
-    client.user.setActivity("YouTube", { type: "WATCHING" })
+    client.user.setActivity("YouTube", {
+        type: "WATCHING"
+    })
 
     client.guilds.forEach((guild) => {
         //list all of the servers the bot is a part of!
@@ -26,33 +28,33 @@ client.on('guildMemberAdd', member => {
 })
 
 client.on('message', (receivedMessage) => {
+    let usrMsg = receivedMessage.content;
     //add a check to avoid the bot responding to its own messages.
     if (receivedMessage.author == client.user) {
         return
+    } else if (usrMsg[0] == '!') {
+        processCommand(usrMsg)
     }
-    if (receivedMessage.conent.startsWith("!")) {
-        processCommand(receivedMessage)
-    }
-
-
     // receivedMessage.channel.send(`Message received: ${receivedMessage.author.toString()}` + receivedMessage.content)
     //  receivedMessage.react(``)
 })
 
-function processCommand(receivedMessage) {
-    let fullCommand = receivedMessage.content.substr(1)
+function processCommand(usrMsg) {
+
+
+    let fullCommand = usrMsg.substr(1)
     let splitCommand = fullCommand.split(' ')
     let primaryCommand = splitCommand[0]
     let arguments = splitCommand.slice(1)
 
     if (primaryCommand == "help") {
-        helpCommand(arguments, receivedMessage)
+        helpCommand(arguments, usrMsg)
     } else if (primaryCommand == "play") {
-        playCommand(arguemnts, receivedMessage)
-            // } else if (overwatchObject[primaryCommand]) {
-            //     overwatchHeroCommand(arguments, receivedMessage)
+        playCommand(arguemnts, usrMsg)
+    } else if (overwatchObject[primaryCommand]) {
+        overwatchHeroCommand(arguments, usrMsg)
     } else {
-        receivedMessage.channel.send(`Here are a few of the commands you can use. !help !play`)
+        usrMsg.send(`Here are a few of the commands you can use. !help !play`)
     }
 }
 
