@@ -14,6 +14,7 @@ const members = require("./data/members.json");
 const overwatch = require('overwatch-api');
 const platform = 'pc';
 const region = 'us';
+const localTime = new Discord.RichEmbed()
 //This is all my overwatch data
 const {
     DateTime
@@ -84,12 +85,11 @@ client.on("message", async message => {
     }
     if (command === "time") {
         // make the bot return the local time zone and the time in the added zones. 
-        let localTime = new Discord.RichEmbed()
-            .setTitle('Current Time')
-            .setColor('GREEN')
-            .addField('UTC Time', `${utcTime.toLocaleString(DateTime.DATETIME_HUGE)}`)
-            .addField(`Eastern US`, `${d.toLocaleString(DateTime.DATETIME_HUGE)}`)
-            .addField(`New Zealand`, `${oceanic.toLocaleString(DateTime.DATETIME_HUGE)}`);
+        localTime.setTitle('Current Time')
+        localTime.setColor('GREEN')
+        localTime.addField('UTC Time', `${utcTime.toLocaleString(DateTime.DATETIME_HUGE)}`)
+        localTime.addField(`Eastern US`, `${d.toLocaleString(DateTime.DATETIME_HUGE)}`)
+        localTime.addField(`New Zealand`, `${oceanic.toLocaleString(DateTime.DATETIME_HUGE)}`);
         message.channel.send(localTime);
     }
     if (command === "counter") {
