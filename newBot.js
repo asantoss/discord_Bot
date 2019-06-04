@@ -23,7 +23,9 @@ const overwatch = require('overwatch-api');
 const platform = 'pc';
 const region = 'us';
 //This is all my overwatch data
-const { DateTime } = require('luxon');
+const {
+    DateTime
+} = require('luxon');
 const d = DateTime.local().setZone(`America/Toronto`);
 const oceanic = d.setZone('Pacific/Auckland');
 const utcTime = DateTime.utc();
@@ -98,25 +100,6 @@ client.on("message", async message => {
             .addField(`New Zealand`, `${oceanic.toLocaleString(DateTime.DATETIME_HUGE)}`);
         return message.reply(localTime);
     }
-    if (command === "register") {
-        // make the bot return the local time zone and the time in the added zones. 
-
-        let json = JSON.stringify(members);
-        let fs = require('fs');
-        fs.readFile(`${members}`, 'utf8', function readFileCallback(err, data) {
-            if (err) {
-                console.log(err);
-            } else {
-                let usrName = message.author.username;
-                obj = JSON.parse(data); //now it an object
-                obj.table.push({
-
-                }); //add some data
-                json = JSON.stringify(obj); //convert it back to json
-                fs.writeFile('myjsonfile.json', json, 'utf8', callback); // write it back 
-            }
-        });
-    }
     if (command === "counter") {
         let hero = args.join(" ");
         let Hero = new Discord.RichEmbed();
@@ -124,8 +107,7 @@ client.on("message", async message => {
                         $ { hero }
                         `];
         let heroCap = hero.charAt(0).toUpperCase() + hero.slice(1);
-        Hero.setThumbnail(`
-                        https: //d1u1mce87gyfbn.cloudfront.net/hero/${hero}/hero-select-portrait.png`);
+        Hero.setThumbnail(`https: //d1u1mce87gyfbn.cloudfront.net/hero/${hero}/hero-select-portrait.png`);
         console.log(hero);
         for (let i = 0; i < owjs.total; i++) {
             let element = owjs.data[i];
@@ -220,11 +202,11 @@ client.on("message", async message => {
     //Here we have the bot send the portrait image as a message and tell the user if it can't 
     //retrive their rank due to not being public
     if (command === "stats") {
+        //Save the variable that we will use to look in our json
         let usr = message.author.username;
         let tag = members[`${usr}`];
-        console.log(tag)
+        //make a callback out to the overwatch api.
         if (tag != undefined) {
-            let usrStats = ''
             overwatch.getProfile(platform, region, tag, (err, json) => {
                 if (err) console.error(err);
                 else message.reply(new Discord.RichEmbed().setTitle(json.username).setThumbnail(json.competitive.rank_img).addField(`Level`, json.level).addField(`Ranking`, json.competitive.rank))

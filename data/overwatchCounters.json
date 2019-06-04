@@ -1,25 +1,122 @@
 {
-    "ana": { "strongAgainst": "Reinhardt - Winston - Mercy", "weakAgainst": "Genji - Widowmaker - Hanzo" },
-    "ashe": { "strongAgainst": "Dva - Roadhod - Hammond", "weakAgainst": "Dva - Roadhod - Hammond" },
-    "bastion": { "strongAgainst": "Reinhardt - Winston - Mercy", "weakAgainst": "Genji - Widowmaker - Hanzo" },
-    "dva": { "strongAgainst": "Widowmaker - Torbjorn - Hanzo", "weakAgainst": "Mei - Junkrat - Reaper" },
-    "genji": { "strongAgainst": "Bastion - Widowmaker - Hanzo", "weakAgainst": "Mei - Winston - Zarya" },
-    "hanzo": { "strongAgainst": "Bastion - Zenyatta - Torbjorn", "weakAgainst": "Genji - Tracer- Winston" },
-    "junkrat": { "strongAgainst": "Torbjorn - Bastion - Reinhardt", "weakAgainst": "Pharah - Widowmaker - Soldier 76" },
-    "lucio": { "strongAgainst": "Mercy - Symmetra - Torbjorn", "weakAgainst": "Mei - Pharah - McCree" },
-    "mccree": { "strongAgainst": "Reaper - Tracer - Lucio", "weakAgainst": "Widowmaker - Genji - Pharah" },
-    "mei": { "strongAgainst": "Genji - Reinhardt - Lucio", "weakAgainst": "Pharah - Widowmaker - Reaper" },
-    "mercy": { "strongAgainst": "Symmetra - Torbjorn - Zarya", "weakAgainst": "Tracer - Genji - Roadhog" },
-    "moira": { "strongAgainst": "Symmetra - Torbjorn - Zarya", "weakAgainst": "Tracer - Genji - Roadhog" },
-    "pharah": { "strongAgainst": "Junkrat - Reaper - Mei", "weakAgainst": "Soldier 76 - Roadhog - Torbjron" },
-    "reaper": { "strongAgainst": "Winston - Roadhog - Reinhardt", "weakAgainst": "McCree - Pharah - Genji" },
-    "reinhardt": { "strongAgainst": "Soldier 76 - Torbjorn - Genji", "weakAgainst": "Mei - Bastion - Junkrat" },
-    "roadhog": { "strongAgainst": "Winston - Mercy - Genji", "weakAgainst": "Reaper - Mei - D.va" },
-    "soldier76": { "strongAgainst": "Pharah - Zenyata - Torbjorn", "weakAgainst": "Genji - Roadhog - McCree" },
-    "symmetra": { "strongAgainst": "Genji - Reinhardt - Lucio", "weakAgainst": "Pharah - Roadhog - Winston" },
-    "torbjorn": { "strongAgainst": "Tracer - Genji - Pharah", "weakAgainst": "Junkrat - Widowmaker - Hanzo" },
-    "tracer": { "strongAgainst": "Mercy - Hanzo - Widowmaker", "weakAgainst": "McCree - Roadhog - Pharah" },
-    "widowmaker": { "strongAgainst": "Bastion - Torbjorn - Junkrat", "weakAgainst": "Genji - D.Va - Winston" },
-    "winston": { "strongAgainst": "Genji - Widowmaker - Hanzo", "weakAgainst": "Bastion - Reaper - Roadhog" },
-    "zarya": { "strongAgainst": "Genji - Torbjorn - Roadhog", "weakAgainst": "Pharah - Reaper - Mei" }
+    "ana": {
+        "strongAgainst": "Reinhardt - Winston - Mercy - Pharah - Roadhog",
+        "weakAgainst": "Genji - Widowmaker - Hanzo - Lucio - Soldier 76"
+    },
+    "ashe": {
+        "strongAgainst": "Pharah - Tracer - Doomfist - Winston - Roadhog - Reinhardt",
+        "weakAgainst": "McCree - Genji - Dva - Hanzo - Widowmaker - Winston"
+    },
+    "bastion": {
+        "strongAgainst": "Reinhardt - Winston - Mercy",
+        "weakAgainst": "Genji - Widowmaker - Hanzo - Junkrat - Roadhog"
+    },
+    "baptiste": {
+        "strongAgainst": "Reinhardt - Winston - Mercy",
+        "weakAgainst": "Genji - Widowmaker - Hanzo"
+    },
+    "brigitte": {
+        "strongAgainst": "Tracer - Winston - Dva - Winston",
+        "weakAgainst": "Genji - Junkrat - Sombra - Pharah"
+    },
+    "dva": {
+        "strongAgainst": "Widowmaker - Torbjorn - Hanzo - Winston",
+        "weakAgainst": "Mei - Junkrat - Reaper - Zenyatta - Zarya"
+    },
+    "doomfist": {
+        "strongAgainst": "Bastion - Mercy - Roadhog",
+        "weakAgainst": "Sombra - Orisa - Pharah"
+    },
+    "genji": {
+        "strongAgainst": "Bastion - Widowmaker - Hanzo - Soldier 76 - Zenyatta",
+        "weakAgainst": "Mei - Winston - Zarya - Symmetra"
+    },
+    "hanzo": {
+        "strongAgainst": "Bastion - Zenyatta - Torbjorn - Tracer",
+        "weakAgainst": "Genji - Tracer- Winston - Reaper - Roadhog"
+    },
+    "junkrat": {
+        "strongAgainst": "Torbjorn - Bastion - Reinhardt - Symmetra - Tracer",
+        "weakAgainst": "Pharah - Widowmaker - Soldier 76 - Hanzo"
+    },
+    "lucio": {
+        "strongAgainst": "Mercy - Symmetra - Torbjorn - Reaper - Dva - Tracer",
+        "weakAgainst": "Widowmaker - Hanzo - Roadhog"
+    },
+    "mccree": {
+        "strongAgainst": "Reaper - Tracer - Lucio - Genji",
+        "weakAgainst": "Widowmaker - Roadhog - Pharah - Bastion"
+    },
+    "mei": {
+        "strongAgainst": "Genji - Reinhardt - Lucio - Tracer",
+        "weakAgainst": "Pharah - Widowmaker - Reaper - Roadhog"
+    },
+    "mercy": {
+        "strongAgainst": "Reaper - Pharah - Soldier 76",
+        "weakAgainst": "Tracer - Genji - Roadhog - Widowmaker - Junkrat"
+    },
+    "moira": {
+        "strongAgainst": "Genji - Reinhardt - Orisa",
+        "weakAgainst": "Bastion - Zarya - Roadhog"
+    },
+    "orisa": {
+        "strongAgainst": "Ana - Widowmaker - McCree",
+        "weakAgainst": "Reinhardt - Reaper - Genji"
+    },
+    "pharah": {
+        "strongAgainst": "Junkrat - Reaper - Mei",
+        "weakAgainst": "Soldier 76 - Roadhog - Torbjron - Widowmaker"
+    },
+    "reaper": {
+        "strongAgainst": "Winston - Roadhog - Reinhardt - Widowmaker",
+        "weakAgainst": "McCree - Pharah - Genji"
+    },
+    "reinhardt": {
+        "strongAgainst": "Soldier 76 - Torbjorn - Genji - Zarya",
+        "weakAgainst": "Mei - Bastion - Junkrat - Tracer - Reaper - Symmetra"
+    },
+    "roadhog": {
+        "strongAgainst": "Winston - Mercy - Genji - Soldier 76 - Tracer",
+        "weakAgainst": "Reaper - Mei - D.va - Widowmaker - Torbjorn - Hanzo"
+    },
+    "soldier76": {
+        "strongAgainst": "Pharah - Zenyata - Torbjorn",
+        "weakAgainst": "Genji - Roadhog - Reinhardt - Dva - Widowmaker"
+    },
+    "symmetra": {
+        "strongAgainst": "Genji - Reinhardt - Orisa - Zenyatta",
+        "weakAgainst": "Winston - Doomfist - Brigitte"
+    },
+    "sombra": {
+        "strongAgainst": "Torbjorn - Reinhardt - Lucio",
+        "weakAgainst": "Reaper - Dva - Winston"
+    },
+    "torbjorn": {
+        "strongAgainst": "Tracer - Genji - Pharah - Reaper",
+        "weakAgainst": "Junkrat - Widowmaker - Hanzo - Zarya - Reinhardt"
+    },
+    "tracer": {
+        "strongAgainst": "Mercy - Hanzo - Widowmaker",
+        "weakAgainst": "McCree - Roadhog - Pharah"
+    },
+    "widowmaker": {
+        "strongAgainst": "Bastion - Torbjorn - Junkrat - Mercy - Bastion - Widowmaker - Hanzo",
+        "weakAgainst": "Widowmaker - Genji - D.Va - Reinhardt - Winston"
+    },
+    "winston": {
+        "strongAgainst": "Genji - Widowmaker - Hanzo - Symmetra - Soldier 76",
+        "weakAgainst": "Bastion - Reaper - Roadhog - Mei - Zenyatta"
+    },
+    "wrecking ball": {
+        "strongAgainst": "Genji - Widowmaker - Hanzo - Brigitte - Lucio",
+        "weakAgainst": "Reaper - Roadhog - Pharah - Sombra"
+    },
+    "zarya": {
+        "strongAgainst": "Genji - Torbjorn - Roadhog - Soldier 76 - Winston",
+        "weakAgainst": "Pharah - Reaper - Reinhardt- Bastion - Widowmaker"
+    },
+    "zenyatta": {
+        "strongAgainst": "Dva - Pharah - Roadhog - Winston",
+        "weakAgainst": "Hanzo - Mercy - Tracer"
+    }
 }
