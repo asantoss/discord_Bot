@@ -14,14 +14,20 @@ const client = new Discord.Client();
 
 // Here we load the config.json file that contains our token and our prefix values. 
 const config = require("./config.json");
+// config.token contains the bot's token
+// config.prefix contains the message prefix.
 const overWatchCounters = require("./data/overwatchCounters.json");
 const owjs = require("./data/overwatchAPI");
 const members = require("./data/members.json");
 const overwatch = require('overwatch-api');
 const platform = 'pc';
 const region = 'us';
-// config.token contains the bot's token
-// config.prefix contains the message prefix.
+//This is all my overwatch data
+const { DateTime } = require('luxon');
+const d = DateTime.local().setZone(`America/Toronto`);
+const oceanic = d.setZone('Pacific/Auckland');
+const utcTime = DateTime.utc();
+//This imports the luxon library which parses some time data for us.
 
 
 
@@ -83,32 +89,46 @@ client.on("message", async message => {
         message.channel.send(sayMessage);
     }
     if (command === "time") {
-        // make the bot return the local time zone and the time zone of the user. 
-        //To get the local time we find the local utc offset.
+        // make the bot return the local time zone and the time in the added zones. 
+        let localTime = new Discord.RichEmbed()
+            .setTitle('Current Time')
+            .setColor('GREEN')
+            .addField('UTC Time', `${utcTime.toLocaleString(DateTime.DATETIME_HUGE)}`)
+            .addField(`Eastern US`, `${d.toLocaleString(DateTime.DATETIME_HUGE)}`)
+            .addField(`New Zealand`, `${oceanic.toLocaleString(DateTime.DATETIME_HUGE)}`);
+        return message.reply(localTime);
+    }
+    if (command === "register") {
+        // make the bot return the local time zone and the time in the added zones. 
 
-        const d = newDate();
-        let locaTime = d.getTime();
-        let localOffset = d.getTimezoneOffset() * 60000;
-        let utc = localTime + localOffset;
-        console.log(locaTime);
-        console.log(localOffset);
-        console.log(utc);
-        // To get the "message" itself we join the `args` back into a string with spaces: 
-        // Then we delete the command message (sneaky, right?). The catch just ignores the error with a cute smiley thing.
-        // message.delete().catch(O_o => {});
-        // // And we get the bot to say the thing: 
-        // message.channel.send(sayMessage);
+        let json = JSON.stringify(members);
+        let fs = require('fs');
+        fs.readFile(`${members}`, 'utf8', function readFileCallback(err, data) {
+            if (err) {
+                console.log(err);
+            } else {
+                let usrName = message.author.username;
+                obj = JSON.parse(data); //now it an object
+                obj.table.push({
+
+                }); //add some data
+                json = JSON.stringify(obj); //convert it back to json
+                fs.writeFile('myjsonfile.json', json, 'utf8', callback); // write it back 
+            }
+        });
     }
     if (command === "counter") {
-        // console.log(hero)
-        const hero = args.join(" ");
-        const Hero = new Discord.RichEmbed();
-        let counter = overWatchCounters[`${hero}`];
+        let hero = args.join(" ");
+        let Hero = new Discord.RichEmbed();
+        let counter = overWatchCounters[`
+                        $ { hero }
+                        `];
         let heroCap = hero.charAt(0).toUpperCase() + hero.slice(1);
-        Hero.setThumbnail(`https://d1u1mce87gyfbn.cloudfront.net/hero/${hero}/hero-select-portrait.png`);
+        Hero.setThumbnail(`
+                        https: //d1u1mce87gyfbn.cloudfront.net/hero/${hero}/hero-select-portrait.png`);
         console.log(hero);
         for (let i = 0; i < owjs.total; i++) {
-            const element = owjs.data[i];
+            let element = owjs.data[i];
             if (owjs.data[i].name === heroCap) {
                 Hero.setTitle(heroCap)
                 Hero.setDescription(element.description)

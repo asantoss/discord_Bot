@@ -1,5 +1,6 @@
 {
     "ana": { "strongAgainst": "Reinhardt - Winston - Mercy", "weakAgainst": "Genji - Widowmaker - Hanzo" },
+    "ashe": { "strongAgainst": "Dva - Roadhod - Hammond", "weakAgainst": "Dva - Roadhod - Hammond" },
     "bastion": { "strongAgainst": "Reinhardt - Winston - Mercy", "weakAgainst": "Genji - Widowmaker - Hanzo" },
     "dva": { "strongAgainst": "Widowmaker - Torbjorn - Hanzo", "weakAgainst": "Mei - Junkrat - Reaper" },
     "genji": { "strongAgainst": "Bastion - Widowmaker - Hanzo", "weakAgainst": "Mei - Winston - Zarya" },
