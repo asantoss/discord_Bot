@@ -1,21 +1,8 @@
 // Load up the discord.js library
 const Discord = require("discord.js");
 //Load up xmlhttp requests
-const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest
-//Overwatch api url
-const owapi = 'https://overwatch-api.net/api/v1/hero';
-//fetch the json from the url
-const http = new XMLHttpRequest();
-http.open("GET", owapi);
-http.send();
-http.onreadystatechange = function () {
 
-    if (this.readyState == 4 && this.status == 200) {
-        let owjs = JSON.parse(http.responseText);
-        console.log('Overwatch data loaded.')
-        console.log(`${owjs.data[0].name}`)
-    }
-};
+
 
 
 
@@ -27,7 +14,12 @@ const client = new Discord.Client();
 
 // Here we load the config.json file that contains our token and our prefix values. 
 const config = require("./config.json");
-const overwatch = require("./overwatch.json");
+const overWatchCounters = require("./data/overwatchCounters.json");
+const owjs = require("./data/overwatchAPI");
+const members = require("./data/members.json");
+const overwatch = require('overwatch-api');
+const platform = 'pc';
+const region = 'us';
 // config.token contains the bot's token
 // config.prefix contains the message prefix.
 
@@ -108,39 +100,33 @@ client.on("message", async message => {
         // message.channel.send(sayMessage);
     }
     if (command === "counter") {
-        // makes the bot say something and delete the message. As an example, it's open to anyone to use. 
-        // To get the "message" itself we join the `args` back into a string with spaces: 
+        // console.log(hero)
         const hero = args.join(" ");
-        const counterReply = `${hero} is ${overwatch[`${hero}`]}`;
-        const counterReplyCapitalized = counterReply.charAt(0).toUpperCase() + counterReply.slice(1);
-        // Then we delete the command message (sneaky, right?). The catch just ignores the error with a cute smiley thing.
-        //Return some information about the hero from the loaded api.
-        const http = new XMLHttpRequest();
-        http.open("GET", owapi);
-        http.send();
-        http.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                let owjs = JSON.parse(http.responseText);
-                let data = owjs.data
-                let newHero = hero.charAt(0).toUpperCase() + hero.slice(1);
-                for (let i = 0; i < data.length; i++) {
-                    const element = data[i];
-                    if (element.name == newHero) {
-                        console.log(element)
-                        message.channel.send(`${newHero}'s health is ${element.health}`)
-                    }
+        const Hero = new Discord.RichEmbed();
+        let counter = overWatchCounters[`${hero}`];
+        let heroCap = hero.charAt(0).toUpperCase() + hero.slice(1);
+        Hero.setThumbnail(`https://d1u1mce87gyfbn.cloudfront.net/hero/${hero}/hero-select-portrait.png`);
+        console.log(hero);
+        for (let i = 0; i < owjs.total; i++) {
+            const element = owjs.data[i];
+            if (owjs.data[i].name === heroCap) {
+                Hero.setTitle(heroCap)
+                Hero.setDescription(element.description)
+                Hero.setColor('RANDOM')
+                Hero.addField('Health :heart: ', element.health)
+                Hero.addField('Armor :shield: ', element.armour)
+                if (counter != undefined) {
+                    Hero.addField('Strong Against :muscle: ', counter.strongAgainst)
+                    Hero.addField('Weak Against :poop: ', counter.weakAgainst)
+                };
 
-                }
-                console.log(newHero)
-                console.log('Overwatch data loaded.');
-                console.log(`${owjs.data[0].name}`);
             }
-        };
+        }
 
-
-        message.delete().catch(O_o => {});
         // And we get the bot to say the thing: 
-        message.channel.send(`\n ${counterReplyCapitalized}`);
+        message.delete().catch(O_o => {});
+        return message.channel.send(Hero);
+
     }
 
     if (command === "kick") {
@@ -166,7 +152,9 @@ client.on("message", async message => {
 
         // Now, time for a swift kick in the nuts!
         await member.kick(reason)
-            .catch(error => message.reply(`Sorry ${message.author} I couldn't kick because of : ${error}`));
+            .catch(error => message.reply(`
+                                            Sorry $ { message.author }
+                                            I couldn 't kick because of : ${error}`));
         message.reply(`${member.user.tag} has been kicked by ${message.author.tag} because: ${reason}`);
 
     }
@@ -212,21 +200,19 @@ client.on("message", async message => {
     //Here we have the bot send the portrait image as a message and tell the user if it can't 
     //retrive their rank due to not being public
     if (command === "stats") {
-        let usr = overwatch[`${message.author.tag}`];
-        let usrUrl = `http://overwatchy.com/profile/pc/us/${usr}`;
-        let request = new XMLHttpRequest;
-        request.open("GET", usrUrl);
-        request.send();
-        request.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                let profile = JSON.parse(request.responseText);
-                message.channel.send(`${profile.portrait}`)
-                if (profile.competitive.rank == null) {
-                    return message.reply("Your profile is not set to public.")
-                }
-            }
+        let usr = message.author.username;
+        let tag = members[`${usr}`];
+        console.log(tag)
+        if (tag != undefined) {
+            let usrStats = ''
+            overwatch.getProfile(platform, region, tag, (err, json) => {
+                if (err) console.error(err);
+                else message.reply(new Discord.RichEmbed().setTitle(json.username).setThumbnail(json.competitive.rank_img).addField(`Level`, json.level).addField(`Ranking`, json.competitive.rank))
+            });
+            return
+        } else {
+            message.reply(`You have not been added to my database.`)
         }
-
 
     }
 });
