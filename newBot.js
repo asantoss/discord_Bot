@@ -16,7 +16,6 @@ const client = new Discord.Client();
 const config = require("./config.json");
 // config.token contains the bot's token
 // config.prefix contains the message prefix.
-const overWatchCounters = require("./data/overwatchCounters.json");
 const owjs = require("./data/overwatchAPI");
 const members = require("./data/members.json");
 const overwatch = require('overwatch-api');
@@ -103,12 +102,8 @@ client.on("message", async message => {
     if (command === "counter") {
         let hero = args.join(" ");
         let Hero = new Discord.RichEmbed();
-        let counter = overWatchCounters[`
-                        $ { hero }
-                        `];
         let heroCap = hero.charAt(0).toUpperCase() + hero.slice(1);
         Hero.setThumbnail(`https: //d1u1mce87gyfbn.cloudfront.net/hero/${hero}/hero-select-portrait.png`);
-        console.log(hero);
         for (let i = 0; i < owjs.total; i++) {
             let element = owjs.data[i];
             if (owjs.data[i].name === heroCap) {
@@ -118,13 +113,12 @@ client.on("message", async message => {
                 Hero.addField('Health :heart: ', element.health)
                 Hero.addField('Armor :shield: ', element.armour)
                 if (counter != undefined) {
-                    Hero.addField('Strong Against :muscle: ', counter.strongAgainst)
-                    Hero.addField('Weak Against :poop: ', counter.weakAgainst)
+                    Hero.addField('Strong Against :muscle: ', element.strongAgainst)
+                    Hero.addField('Weak Against :poop: ', element.weakAgainst)
                 };
 
             }
         }
-
         // And we get the bot to say the thing: 
         message.delete().catch(O_o => {});
         return message.channel.send(Hero);
@@ -154,9 +148,7 @@ client.on("message", async message => {
 
         // Now, time for a swift kick in the nuts!
         await member.kick(reason)
-            .catch(error => message.reply(`
-                                            Sorry $ { message.author }
-                                            I couldn 't kick because of : ${error}`));
+            .catch(error => message.reply(`Sorry ${message.author}I couldn 't kick because of : ${error}`));
         message.reply(`${member.user.tag} has been kicked by ${message.author.tag} because: ${reason}`);
 
     }

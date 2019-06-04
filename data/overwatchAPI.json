@@ -1,13 +1,9 @@
 {
     "total": 24,
-    "first": "http:\/\/overwatch-api.net\/api\/v1\/hero?page=1",
-    "next": null,
-    "previous": null,
-    "last": "http:\/\/overwatch-api.net\/api\/v1\/hero?page=1",
     "data": [{
             "id": 1,
             "name": "Ana",
-            "description": "Ana\u2019s versatile arsenal allows her to affect heroes all over the battlefield. Her Biotic Rifle rounds and Biotic Grenades heal allies and damage or impair enemies; her sidearm tranquilizes key targets, and Nano Boost gives one of her comrades a considerable increase in power.",
+            "description": "Ana's versatile arsenal allows her to affect heroes all over the battlefield. Her Biotic Rifle rounds and Biotic Grenades heal allies and damage or impair enemies; her sidearm tranquilizes key targets, and Nano Boost gives one of her comrades a considerable increase in power.",
             "health": 200,
             "armour": 0,
             "shield": 0,
@@ -17,7 +13,8 @@
             "affiliation": "Overwatch",
             "base_of_operations": "Cairo, Egypt",
             "difficulty": 3,
-            "url": "https:\/\/overwatch-api.net\/api\/v1\/hero\/1"
+            "strongAgainst": "Reinhardt - Winston - Mercy - Pharah - Roadhog",
+            "weakAgainst": "Genji - Widowmaker - Hanzo - Lucio - Soldier 76"
         },
         {
             "id": 2,
@@ -32,12 +29,13 @@
             "affiliation": null,
             "base_of_operations": null,
             "difficulty": 1,
-            "url": "https:\/\/overwatch-api.net\/api\/v1\/hero\/2"
+            "strongAgainst": "Reinhardt - Winston - Mercy",
+            "weakAgainst": "Genji - Widowmaker - Hanzo - Junkrat - Roadhog"
         },
         {
             "id": 3,
             "name": "D.Va",
-            "description": "D.Va\u2019s mech is nimble and powerful\u2014its twin Fusion Cannons blast away with autofire at short range, and she can use its Boosters to barrel over enemies and obstacles, or deflect attacks with her projectile-dismantling Defense Matrix.",
+            "description": "D.Vas mech is nimble and powerful its twin Fusion Cannons blast away with autofire at short range, and she can use its Boosters to barrel over enemies and obstacles, or deflect attacks with her projectile-dismantling Defense Matrix.",
             "health": 200,
             "armour": 400,
             "shield": 0,
@@ -47,7 +45,8 @@
             "affiliation": "Mobile Exo-Force of the Korean Army",
             "base_of_operations": "Busan, South Korea",
             "difficulty": 2,
-            "url": "https:\/\/overwatch-api.net\/api\/v1\/hero\/3"
+            "strongAgainst": "Widowmaker - Torbjorn - Hanzo - Winston",
+            "weakAgainst": "Mei - Junkrat - Reaper - Zenyatta - Zarya"
         },
         {
             "id": 4,
@@ -62,12 +61,13 @@
             "affiliation": "Shimada Clan",
             "base_of_operations": "Shambali Monastery, Nepal",
             "difficulty": 3,
-            "url": "https:\/\/overwatch-api.net\/api\/v1\/hero\/4"
+            "strongAgainst": "Bastion - Widowmaker - Hanzo - Soldier 76 - Zenyatta",
+            "weakAgainst": "Mei - Winston - Zarya - Symmetra"
         },
         {
             "id": 5,
             "name": "Hanzo",
-            "description": "Hanzo\u2019s versatile arrows can reveal his enemies or fragment to strike multiple targets. He can scale walls to fire his bow from on high, or summon a titanic spirit dragon.",
+            "description": "Hanzo's versatile arrows can reveal his enemies or fragment to strike multiple targets. He can scale walls to fire his bow from on high, or summon a titanic spirit dragon.",
             "health": 200,
             "armour": 0,
             "shield": 0,
@@ -77,12 +77,13 @@
             "affiliation": "Shimada Clan",
             "base_of_operations": "Hanamura, Japan",
             "difficulty": 3,
-            "url": "https:\/\/overwatch-api.net\/api\/v1\/hero\/5"
+            "strongAgainst": "Bastion - Zenyatta - Torbjorn - Tracer",
+            "weakAgainst": "Genji - Tracer- Winston - Reaper - Roadhog"
         },
         {
             "id": 6,
             "name": "Junkrat",
-            "description": "Junkrat\u2019s area-denying armaments include a Frag Launcher that lobs bouncing grenades, Concussion Mines that send enemies flying, and Steel Traps that stop foes dead in their tracks.",
+            "description": "Junkrats area-denying armaments include a Frag Launcher that lobs bouncing grenades, Concussion Mines that send enemies flying, and Steel Traps that stop foes dead in their tracks.",
             "health": 200,
             "armour": 0,
             "shield": 0,
@@ -92,22 +93,24 @@
             "affiliation": "Junkers",
             "base_of_operations": "Junkertown, Australia",
             "difficulty": 2,
-            "url": "https:\/\/overwatch-api.net\/api\/v1\/hero\/6"
+            "strongAgainst": "Torbjorn - Bastion - Reinhardt - Symmetra - Tracer",
+            "weakAgainst": "Pharah - Widowmaker - Soldier 76 - Hanzo"
         },
         {
             "id": 7,
-            "name": "L\u00facio",
-            "description": "On the battlefield, L\u00facio\u2019s cutting-edge Sonic Amplifier buffets enemies with projectiles and knocks foes back with blasts of sound. His songs can both heal his team or boost their movement speed, and he can switch between tracks on the fly.",
+            "name": "Lucio",
+            "description": "On the battlefield, Lucio's cutting-edge Sonic Amplifier buffets enemies with projectiles and knocks foes back with blasts of sound. His songs can both heal his team or boost their movement speed, and he can switch between tracks on the fly.",
             "health": 200,
             "armour": 0,
             "shield": 0,
-            "real_name": "L\u00facio Correia dos Santos",
+            "real_name": "Lucio Correia dos Santos",
             "age": 26,
             "height": 160,
             "affiliation": null,
             "base_of_operations": "Rio de Janeiro, Brazil",
             "difficulty": 2,
-            "url": "https:\/\/overwatch-api.net\/api\/v1\/hero\/7"
+            "strongAgainst": "Mercy - Symmetra - Torbjorn - Reaper - Dva - Tracer",
+            "weakAgainst": "Widowmaker - Hanzo - Roadhog"
         },
         {
             "id": 8,
@@ -122,12 +125,13 @@
             "affiliation": "Deadlock Gang",
             "base_of_operations": "Santa Fe, New Mexico",
             "difficulty": 2,
-            "url": "https:\/\/overwatch-api.net\/api\/v1\/hero\/8"
+            "strongAgainst": "Reaper - Tracer - Lucio - Genji",
+            "weakAgainst": "Widowmaker - Roadhog - Pharah - Bastion"
         },
         {
             "id": 9,
             "name": "Mei",
-            "description": "Mei\u2019s weather-altering devices slow opponents and protect locations. Her Endothermic Blaster unleashes damaging icicles and frost streams, and she can Cryo-Freeze herself to guard against counterattacks, or obstruct the opposing team's movements with an Ice Wall.",
+            "description": "Mei's weather-altering devices slow opponents and protect locations. Her Endothermic Blaster unleashes damaging icicles and frost streams, and she can Cryo-Freeze herself to guard against counterattacks, or obstruct the opposing team's movements with an Ice Wall.",
             "health": 250,
             "armour": 0,
             "shield": 0,
@@ -137,12 +141,13 @@
             "affiliation": "Overwatch",
             "base_of_operations": "Xi'an, China",
             "difficulty": 3,
-            "url": "https:\/\/overwatch-api.net\/api\/v1\/hero\/9"
+            "strongAgainst": "Genji - Reinhardt - Lucio - Tracer",
+            "weakAgainst": "Pharah - Widowmaker - Reaper - Roadhog"
         },
         {
             "id": 10,
             "name": "Mercy",
-            "description": "Mercy\u2019s Valkyrie Suit helps keep her close to teammates like a guardian angel; healing, resurrecting or strengthening them with the beams emanating from her Caduceus Staff.",
+            "description": "Mercy's Valkyrie Suit helps keep her close to teammates like a guardian angel; healing, resurrecting or strengthening them with the beams emanating from her Caduceus Staff.",
             "health": 200,
             "armour": 0,
             "shield": 0,
@@ -150,9 +155,10 @@
             "age": 37,
             "height": 170,
             "affiliation": "Overwatch",
-            "base_of_operations": "Z\u00fcrich, Switzerland",
+            "base_of_operations": "Zurich, Switzerland",
             "difficulty": 1,
-            "url": "https:\/\/overwatch-api.net\/api\/v1\/hero\/10"
+            "strongAgainst": "Reaper - Pharah - Soldier 76",
+            "weakAgainst": "Tracer - Genji - Roadhog - Widowmaker - Junkrat"
         },
         {
             "id": 11,
@@ -167,7 +173,8 @@
             "affiliation": "Helix Security International",
             "base_of_operations": "Giza, Egypt",
             "difficulty": 1,
-            "url": "https:\/\/overwatch-api.net\/api\/v1\/hero\/11"
+            "strongAgainst": "Junkrat - Reaper - Mei",
+            "weakAgainst": "Soldier 76 - Roadhog - Torbjron - Widowmaker"
         },
         {
             "id": 12,
@@ -182,7 +189,8 @@
             "affiliation": "Overwatch",
             "base_of_operations": "Los Angeles, California, United States of America",
             "difficulty": 1,
-            "url": "https:\/\/overwatch-api.net\/api\/v1\/hero\/12"
+            "strongAgainst": "Winston - Roadhog - Reinhardt - Widowmaker",
+            "weakAgainst": "McCree - Pharah - Genji"
         },
         {
             "id": 13,
@@ -197,7 +205,8 @@
             "affiliation": "Overwatch",
             "base_of_operations": "Stuttgart, Germany",
             "difficulty": 1,
-            "url": "https:\/\/overwatch-api.net\/api\/v1\/hero\/13"
+            "strongAgainst": "Soldier 76 - Torbjorn - Genji - Zarya",
+            "weakAgainst": "Mei - Bastion - Junkrat - Tracer - Reaper - Symmetra"
         },
         {
             "id": 14,
@@ -212,7 +221,8 @@
             "affiliation": "Australian Liberation Front",
             "base_of_operations": "Junkertown, Australia",
             "difficulty": 1,
-            "url": "https:\/\/overwatch-api.net\/api\/v1\/hero\/14"
+            "strongAgainst": "Winston - Mercy - Genji - Soldier 76 - Tracer",
+            "weakAgainst": "Reaper - Mei - D.va - Widowmaker - Torbjorn - Hanzo"
         },
         {
             "id": 15,
@@ -227,7 +237,8 @@
             "affiliation": "Overwatch",
             "base_of_operations": null,
             "difficulty": 1,
-            "url": "https:\/\/overwatch-api.net\/api\/v1\/hero\/15"
+            "strongAgainst": "Pharah - Zenyata - Torbjorn",
+            "weakAgainst": "Genji - Roadhog - Reinhardt - Dva - Widowmaker"
         },
         {
             "id": 16,
@@ -242,22 +253,24 @@
             "affiliation": "Vishkar Corporation",
             "base_of_operations": "Utopaea, India",
             "difficulty": 2,
-            "url": "https:\/\/overwatch-api.net\/api\/v1\/hero\/16"
+            "strongAgainst": "Genji - Reinhardt - Orisa - Zenyatta",
+            "weakAgainst": "Winston - Doomfist - Brigitte"
         },
         {
             "id": 17,
             "name": "Torbjorn",
-            "description": "Torbj\u00f6rn\u2019s extensive arsenal includes a rivet gun and hammer, as well as a personal forge that he can use to build upgradeable turrets and dole out protective armor packs.",
+            "description": "Torbjorn's extensive arsenal includes a rivet gun and hammer, as well as a personal forge that he can use to build upgradeable turrets and dole out protective armor packs.",
             "health": 200,
             "armour": 0,
             "shield": 0,
-            "real_name": "Torbj\u00f6rn Lindholm",
+            "real_name": "Torbjorn Lindholm",
             "age": 57,
             "height": 140,
             "affiliation": "Overwatch",
             "base_of_operations": "Gothenburg, Sweden",
             "difficulty": 2,
-            "url": "https:\/\/overwatch-api.net\/api\/v1\/hero\/17"
+            "strongAgainst": "Tracer - Genji - Pharah - Reaper",
+            "weakAgainst": "Junkrat - Widowmaker - Hanzo - Zarya - Reinhardt"
         },
         {
             "id": 18,
@@ -272,7 +285,8 @@
             "affiliation": "Overwatch",
             "base_of_operations": "London, England",
             "difficulty": 2,
-            "url": "https:\/\/overwatch-api.net\/api\/v1\/hero\/18"
+            "strongAgainst": "Mercy - Hanzo - Widowmaker",
+            "weakAgainst": "McCree - Roadhog - Pharah"
         },
         {
             "id": 19,
@@ -281,18 +295,19 @@
             "health": 200,
             "armour": 0,
             "shield": 0,
-            "real_name": "Am\u00e9lie Lacroix",
+            "real_name": "Amalie Lacroix",
             "age": 33,
             "height": 175,
             "affiliation": "Talon",
             "base_of_operations": "Annecy, France",
             "difficulty": 2,
-            "url": "https:\/\/overwatch-api.net\/api\/v1\/hero\/19"
+            "strongAgainst": "Bastion - Torbjorn - Junkrat - Mercy - Bastion - Widowmaker - Hanzo",
+            "weakAgainst": "Widowmaker - Genji - D.Va - Reinhardt - Winston"
         },
         {
             "id": 20,
             "name": "Winston",
-            "description": "Winston wields impressive inventions\u2014a jump pack, electricity-blasting Tesla Cannon, portable shield projector and more\u2014with literal gorilla strength.",
+            "description": "Winston wields impressive inventions a jump pack, electricity-blasting Tesla Cannon, portable shield projector and more\u2014with literal gorilla strength.",
             "health": 400,
             "armour": 100,
             "shield": 0,
@@ -302,7 +317,8 @@
             "affiliation": "Overwatch",
             "base_of_operations": "Watchpoint Gibraltar",
             "difficulty": 2,
-            "url": "https:\/\/overwatch-api.net\/api\/v1\/hero\/20"
+            "strongAgainst": "Genji - Widowmaker - Hanzo - Symmetra - Soldier 76",
+            "weakAgainst": "Bastion - Reaper - Roadhog - Mei - Zenyatta"
         },
         {
             "id": 21,
@@ -317,7 +333,8 @@
             "affiliation": "Russian Defense Forces",
             "base_of_operations": "Krasnoyarsk Front, Russia",
             "difficulty": 3,
-            "url": "https:\/\/overwatch-api.net\/api\/v1\/hero\/21"
+            "strongAgainst": "Genji - Torbjorn - Roadhog - Soldier 76 - Winston",
+            "weakAgainst": "Pharah - Reaper - Reinhardt- Bastion - Widowmaker"
         },
         {
             "id": 22,
@@ -332,7 +349,8 @@
             "affiliation": "The Shambali",
             "base_of_operations": "Shambali Monastery, Nepal",
             "difficulty": 3,
-            "url": "https:\/\/overwatch-api.net\/api\/v1\/hero\/22"
+            "strongAgainst": "Dva - Pharah - Roadhog - Winston",
+            "weakAgainst": "Hanzo - Mercy - Tracer"
         },
         {
             "id": 23,
@@ -341,13 +359,14 @@
             "health": 200,
             "armour": 0,
             "shield": 0,
-            "real_name": "\u2591\u2591\u2591\u2591\u2591\u2591",
+            "real_name": "Sombra Rodriguez",
             "age": 30,
             "height": null,
             "affiliation": "Talon",
             "base_of_operations": "Dorado, Mexico",
             "difficulty": 3,
-            "url": "https:\/\/overwatch-api.net\/api\/v1\/hero\/23"
+            "strongAgainst": "Genji - Reinhardt - Orisa - Zenyatta",
+            "weakAgainst": "Winston - Doomfist - Brigitte"
         },
         {
             "id": 24,
@@ -362,7 +381,105 @@
             "affiliation": null,
             "base_of_operations": "Numbani",
             "difficulty": 2,
-            "url": "https:\/\/overwatch-api.net\/api\/v1\/hero\/24"
+            "strongAgainst": "Ana - Widowmaker - McCree",
+            "weakAgainst": "Reinhardt - Reaper - Genji"
+        },
+        {
+            "id": 25,
+            "name": "Doomfist",
+            "description": "Recently freed from imprisonment, Doomfist is determined to plunge the world into a new conflict that he believes will make humanity stronger.[1] He possesses great strength and agility himself, even without his gauntlet.",
+            "health": 250,
+            "armour": 0,
+            "shield": 0,
+            "real_name": "Orisa",
+            "age": 45,
+            "height": null,
+            "affiliation": "Talon",
+            "base_of_operations": "Oyo, Nigeria",
+            "difficulty": 2,
+            "strongAgainst": "Bastion - Mercy - Roadhog",
+            "weakAgainst": "Sombra - Orisa - Pharah"
+        },
+        {
+            "id": 26,
+            "name": "Moira",
+            "description": "Orisa serves as the central anchor of her team, and defends her teammates from the frontline with a protective barrier. She can attack from long range, fortify her own defenses, launch graviton charges to slow and move enemies, and deploy a Supercharger to boost the damage output of multiple allies at once.",
+            "health": 200,
+            "armour": 0,
+            "shield": 0,
+            "real_name": "Moira",
+            "age": null,
+            "height": null,
+            "affiliation": "Talon",
+            "base_of_operations": "Dublin, Ireland",
+            "difficulty": 2,
+            "strongAgainst": "Genji - Reinhardt - Orisa",
+            "weakAgainst": "Bastion - Zarya - Roadhog"
+        },
+        {
+            "id": 27,
+            "name": "Brigitte",
+            "description": "Brigitte specializes in armor. She can throw Repair Packs to heal teammates, or automatically heal nearby allies when she damages foes with her Flail.",
+            "health": 200,
+            "armour": 50,
+            "shield": 0,
+            "real_name": "Brigitte Lindholm",
+            "age": 23,
+            "height": null,
+            "affiliation": null,
+            "base_of_operations": "Numbani",
+            "difficulty": 2,
+            "strongAgainst": "Tracer - Winston - Dva - Winston",
+            "weakAgainst": "Genji - Junkrat - Sombra - Pharah"
+        },
+        {
+            "id": 28,
+            "name": "Wrecking Ball",
+            "description": "Wrecking Ball rolls across the battlefield, using his arsenal of weapons and his mech’s powerful body to crush his enemies.",
+            "health": 500,
+            "armour": 100,
+            "shield": 0,
+            "real_name": "Hammond",
+            "age": 14,
+            "height": null,
+            "affiliation": null,
+            "base_of_operations": "Junkertown",
+            "difficulty": 2,
+            "strongAgainst": "Genji - Widowmaker - Hanzo - Brigitte - Lucio",
+            "weakAgainst": "Reaper - Roadhog - Pharah - Sombra"
+        },
+        {
+            "id": 29,
+            "name": "Ashe",
+            "description": "Orisa serves as the central anchor of her team, and defends her teammates from the frontline with a protective barrier. She can attack from long range, fortify her own defenses, launch graviton charges to slow and move enemies, and deploy a Supercharger to boost the damage output of multiple allies at once.",
+            "health": 200,
+            "armour": 0,
+            "shield": 0,
+            "real_name": "Elizabeth Caledonia Calamity Ashe",
+            "age": 39,
+            "height": null,
+            "affiliation": null,
+            "base_of_operations": "Numbani",
+            "difficulty": 2,
+            "strongAgainst": "Pharah - Tracer - Doomfist - Winston - Roadhog - Reinhardt",
+            "weakAgainst": "McCree - Genji - Dva - Hanzo - Widowmaker - Winston"
+        },
+        {
+            "id": 30,
+            "name": "Baptiste",
+            "description": "Baptiste wields an assortment of experimental devices and weaponry to keep allies alive and eliminate threats under fierce conditions. A battle-hardened combat medic, he is just as capable of saving lives as he is taking out the enemy.",
+            "health": 200,
+            "armour": 200,
+            "shield": 0,
+            "real_name": "Jean-Baptiste Augustin",
+            "age": 36,
+            "height": null,
+            "affiliation": null,
+            "base_of_operations": "Talon",
+            "difficulty": 2,
+            "strongAgainst": "Reinhardt - Winston - Mercy",
+            "weakAgainst": "Genji - Widowmaker - Hanzo"
+
         }
     ]
 }
