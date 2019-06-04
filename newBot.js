@@ -1,12 +1,5 @@
 // Load up the discord.js library
 const Discord = require("discord.js");
-//Load up xmlhttp requests
-
-
-
-
-
-
 // This is your client. Some people call it `bot`, some people call it `self`, 
 // some might call it `cootchie`. Either way, when you see `client.something`, or `bot.something`,
 // this is what we're refering to. Your client.
@@ -97,13 +90,13 @@ client.on("message", async message => {
             .addField('UTC Time', `${utcTime.toLocaleString(DateTime.DATETIME_HUGE)}`)
             .addField(`Eastern US`, `${d.toLocaleString(DateTime.DATETIME_HUGE)}`)
             .addField(`New Zealand`, `${oceanic.toLocaleString(DateTime.DATETIME_HUGE)}`);
-        return message.reply(localTime);
+        message.channel.send(localTime);
     }
     if (command === "counter") {
         let hero = args.join(" ");
         let Hero = new Discord.RichEmbed();
         let heroCap = hero.charAt(0).toUpperCase() + hero.slice(1);
-        Hero.setThumbnail(`https: //d1u1mce87gyfbn.cloudfront.net/hero/${hero}/hero-select-portrait.png`);
+        Hero.setThumbnail(`https://d1u1mce87gyfbn.cloudfront.net/hero/${hero}/hero-select-portrait.png`);
         for (let i = 0; i < owjs.total; i++) {
             let element = owjs.data[i];
             if (owjs.data[i].name === heroCap) {
@@ -112,19 +105,14 @@ client.on("message", async message => {
                 Hero.setColor('RANDOM')
                 Hero.addField('Health :heart: ', element.health)
                 Hero.addField('Armor :shield: ', element.armour)
-                if (counter != undefined) {
-                    Hero.addField('Strong Against :muscle: ', element.strongAgainst)
-                    Hero.addField('Weak Against :poop: ', element.weakAgainst)
-                };
-
+                Hero.addField('Strong Against :muscle: ', element.strongAgainst)
+                Hero.addField('Weak Against :poop: ', element.weakAgainst)
             }
         }
         // And we get the bot to say the thing: 
         message.delete().catch(O_o => {});
-        return message.channel.send(Hero);
-
+        message.channel.send(Hero);
     }
-
     if (command === "kick") {
         // This command must be limited to mods and admins. In this example we just hardcode the role names.
         // Please read on Array.some() to understand this bit: 
@@ -150,9 +138,7 @@ client.on("message", async message => {
         await member.kick(reason)
             .catch(error => message.reply(`Sorry ${message.author}I couldn 't kick because of : ${error}`));
         message.reply(`${member.user.tag} has been kicked by ${message.author.tag} because: ${reason}`);
-
     }
-
     if (command === "ban") {
         // Most of this command is identical to kick, except that here we'll only let admins do it.
         // In the real world mods could ban too, but this is just an example, right? ;)
@@ -172,7 +158,6 @@ client.on("message", async message => {
             .catch(error => message.reply(`Sorry ${message.author} I couldn't ban because of : ${error}`));
         message.reply(`${member.user.tag} has been banned by ${message.author.tag} because: ${reason}`);
     }
-
     if (command === "purge") {
         // This command removes all messages from all users in the channel, up to 100.
 
@@ -207,7 +192,6 @@ client.on("message", async message => {
         } else {
             message.reply(`You have not been added to my database.`)
         }
-
     }
 });
 
