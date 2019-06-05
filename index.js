@@ -9,20 +9,22 @@ const client = new Discord.Client();
 const config = require("./config.json");
 // config.token contains the bot's token
 // config.prefix contains the message prefix.
+
+
+
+//This is all my overwatch data
 const owjs = require("./data/overwatchAPI");
 const members = require("./data/members.json");
 const overwatch = require('overwatch-api');
 const platform = 'pc';
 const region = 'us';
-const localTime = new Discord.RichEmbed()
-//This is all my overwatch data
+//This imports the luxon library which parses some time data for us.
 const {
     DateTime
 } = require('luxon');
 const d = DateTime.local().setZone(`America/Toronto`);
 const oceanic = d.setZone('Pacific/Auckland');
 const utcTime = DateTime.utc();
-//This imports the luxon library which parses some time data for us.
 
 
 
@@ -84,10 +86,11 @@ client.on("message", async message => {
         message.channel.send(sayMessage);
     }
     if (command === "time") {
-        // make the bot return the local time zone and the time in the added zones. 
-        localTime.setTitle('Current Time')
+        const localTime = new Discord.RichEmbed()
+            // make the bot return the local time zone and the time in the added zones. 
+            // localTime.setTitle('Current Time')
         localTime.setColor('GREEN')
-        localTime.addField('UTC Time', `${utcTime.toLocaleString(DateTime.DATETIME_HUGE)}`)
+            // localTime.addField('UTC Time', `${utcTime.toLocaleString(DateTime.DATETIME_HUGE)}`)
         localTime.addField(`Eastern US`, `${d.toLocaleString(DateTime.DATETIME_HUGE)}`)
         localTime.addField(`New Zealand`, `${oceanic.toLocaleString(DateTime.DATETIME_HUGE)}`);
         message.channel.send(localTime);
@@ -181,6 +184,8 @@ client.on("message", async message => {
     if (command === "stats") {
         //Save the variable that we will use to look in our json
         let usr = message.author.username;
+        let argument = args.join(' ')
+        if (args.length > 1) { usr = argument }
         let tag = members[`${usr}`];
         //make a callback out to the overwatch api.
         if (tag != undefined) {
