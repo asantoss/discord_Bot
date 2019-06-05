@@ -22,9 +22,6 @@ const region = 'us';
 const {
     DateTime
 } = require('luxon');
-const d = DateTime.local().setZone(`America/Toronto`);
-const oceanic = d.setZone('Pacific/Auckland');
-const utcTime = DateTime.utc();
 
 
 
@@ -86,6 +83,10 @@ client.on("message", async message => {
         message.channel.send(sayMessage);
     }
     if (command === "time") {
+        const d = DateTime.local().setZone(`America/Toronto`);
+        const oceanic = d.setZone('Pacific/Auckland');
+        const utcTime = DateTime.utc();
+
         const localTime = new Discord.RichEmbed()
             // make the bot return the local time zone and the time in the added zones. 
             // localTime.setTitle('Current Time')
