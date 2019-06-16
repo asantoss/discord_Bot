@@ -84,16 +84,16 @@ client.on("message", async message => {
     }
     if (command === "time") {
         const d = DateTime.local().setZone(`America/Toronto`);
-        const oceanic = d.setZone('Pacific/Auckland');
+        const oceanicNZ = d.setZone('Pacific/Auckland');
+        const oceanicAU = d.setZone('Australia/Melbourne');
         const utcTime = DateTime.utc();
-
+        console.log(message.channel)
         const localTime = new Discord.RichEmbed()
             // make the bot return the local time zone and the time in the added zones. 
-            // localTime.setTitle('Current Time')
         localTime.setColor('GREEN')
-            // localTime.addField('UTC Time', `${utcTime.toLocaleString(DateTime.DATETIME_HUGE)}`)
         localTime.addField(`Eastern US`, `${d.toLocaleString(DateTime.DATETIME_HUGE)}`)
-        localTime.addField(`New Zealand`, `${oceanic.toLocaleString(DateTime.DATETIME_HUGE)}`);
+        localTime.addField(`New Zealand`, `${oceanicNZ.toLocaleString(DateTime.DATETIME_HUGE)}`);
+        localTime.addField(`Australia`, `${oceanicAU.toLocaleString(DateTime.DATETIME_HUGE)}`);
         message.channel.send(localTime);
     }
     if (command === "counter") {
@@ -114,8 +114,13 @@ client.on("message", async message => {
             }
         }
         // And we get the bot to say the thing: 
-        message.delete().catch(O_o => {});
-        message.channel.send(Hero);
+        if (message.type != "dm") {
+            message.delete().catch(O_o => {});
+            message.channel.send(Hero);
+        } else {
+            message.delete().catch(O_o => {});
+            message.channel.send(Hero);
+        }
     }
     if (command === "kick") {
         // This command must be limited to mods and admins. In this example we just hardcode the role names.
@@ -192,7 +197,7 @@ client.on("message", async message => {
         if (tag != undefined) {
             overwatch.getProfile(platform, region, tag, (err, json) => {
                 if (err) console.error(err);
-                else message.reply(new Discord.RichEmbed().setTitle(json.username).setThumbnail(json.competitive.rank_img).addField(`Level`, json.level).addField(`Ranking`, json.competitive.rank))
+                else message.channel.send(new Discord.RichEmbed().setTitle(json.username).setThumbnail(json.competitive.rank_img).addField(`Level`, json.level).addField(`Ranking`, json.competitive.rank))
             });
             return
         } else {
