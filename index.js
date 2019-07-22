@@ -87,7 +87,6 @@ client.on("message", async message => {
         const oceanicNZ = d.setZone('Pacific/Auckland');
         const oceanicAU = d.setZone('Australia/Melbourne');
         const utcTime = DateTime.utc();
-        console.log(message.channel)
         const localTime = new Discord.RichEmbed()
             // make the bot return the local time zone and the time in the added zones. 
         localTime.setColor('GREEN')
